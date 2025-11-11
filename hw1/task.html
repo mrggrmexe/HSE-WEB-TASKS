@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя личная страница - Штукмайстер Герман</title>
+    <style>
+        /* Базовое оформление */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        header, nav, main, footer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        header h1 {
+            margin: 0 0 5px 0;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+
+        nav a:hover {
+            background: #222;
+            color: #fff;
+        }
+
+        section {
+            background: #fff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 4px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
+        /* Форма */
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+
+        form label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="url"],
+        input[type="search"],
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"],
+        input[type="color"],
+        input[type="range"],
+        select,
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px;
+            margin-top: 2px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 0.9rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        fieldset {
+            grid-column: 1 / -1;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 10px 12px 12px;
+            margin: 0;
+        }
+
+        legend {
+            padding: 0 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 15px;
+            font-size: 0.85rem;
+        }
+
+        .checkbox-group label,
+        .radio-group label {
+            font-weight: normal;
+        }
+
+        .buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .buttons button,
+        .buttons input[type="submit"],
+        .buttons input[type="reset"] {
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .buttons input[type="submit"] {
+            background: #222;
+            color: #fff;
+        }
+
+        .buttons input[type="reset"] {
+            background: #ccc;
+        }
+
+        .buttons button {
+            background: #0077cc;
+            color: #fff;
+        }
+
+        .status-block {
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        footer {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+            padding: 10px 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ШАПКА СТРАНИЦЫ -->
+    <header>
+        <h1>Личная страница</h1>
+        <p><strong>Штукмайстер Герман</strong> - страница выполнена по всем критериям разметки HTML</p>
+    </header>
+
+    <!-- НАВИГАЦИЯ: ВНУТРЕННИЕ ССЫЛКИ -->
+    <nav>
+        <a href="#about">Обо мне</a>
+        <a href="#hobby">Мои интересы</a>
+        <a href="#table">Учёба и навыки</a>
+        <a href="#gallery">Фото</a>
+        <a href="#form">Связаться со мной</a>
+        <!-- ВНЕШНЯЯ ССЫЛКА -->
+        <a href="https://www.w3schools.com/html/" target="_blank">Ресурс по HTML</a>
+    </nav>
+
+    <!-- БЛОК "ОБО МНЕ": ТЕКСТ + ФОРМАТИРОВАНИЕ -->
+    <main>
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>
+                Доброго времени суток, меня зовут <strong>Герман</strong>. 
+                Я <em>изучаю веб-разработку</em> и делаю эту страницу в рамках домашнего задания.
+            </p>
+            <p>
+                Здесь я тренируюсь использовать <mark>HTML-теги</mark>, 
+                работаю с текстом, таблицами, изображениями, списками, ссылками и формами.
+            </p>
+        </section>
+
+        <!-- СПИСКИ: УПОРЯДОЧЕННЫЙ, НЕУПОРЯДОЧЕННЫЙ, ВЛОЖЕННЫЙ -->
+        <section id="hobby">
+            <h2>Мои интересы</h2>
+
+            <h3>Что мне нравится (неупорядоченный список)</h3>
+            <ul>
+                <li>Программирование и веб-разработка</li>
+                <li>Дизайн и оформление интерфейсов</li>
+            </ul>
+
+            <h3>Мои цели на год (упорядоченный список)</h3>
+            <ol>
+                <li>Научиться уверенно работать с HTML и CSS</li>
+                <li>Освоить основы PHP и JavaScript</li>
+                <li>Сделать несколько собственных мини-проектов</li>
+            </ol>
+
+            <h3>Любимые напитки (вложенный список)</h3>
+            <ul>
+                <li>Кофе</li>
+                <li>Чай
+                    <ul>
+                        <li>Чёрный чай</li>
+                        <li>Зелёный чай</li>
+                    </ul>
+                </li>
+                <li>Молоко</li>
+            </ul>
+        </section>
+
+        <!-- ТАБЛИЦА С ОБЪЕДИНЕНИЕМ ЯЧЕЕК -->
+        <section id="table">
+            <h2>Учёба и навыки</h2>
+            <p>Небольшая таблица, показывающая, что я изучаю:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">№</th>
+                        <th rowspan="2">Технология</th>
+                        <th colspan="2">Уровень</th>
+                    </tr>
+                    <tr>
+                        <th>Теория</th>
+                        <th>Практика</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>HTML</td>
+                        <td>Хороший</td>
+                        <td>Средний</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CSS</td>
+                        <td>Базовый</td>
+                        <td>Базовый</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>PHP</td>
+                        <td colspan="2">Начальный уровень (в процессе изучения)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ИЗОБРАЖЕНИЕ -->
+        <section id="gallery">
+            <h2>Пример изображения</h2>
+            <!-- Замените src на свой файл, например: images/me.jpg -->
+            <img src="https://hi-news.ru/wp-content/uploads/2020/01/atom_image_one-750x500.jpg"
+                 alt="Фотография атома"
+                 width="400"
+                 height="250">
+        </section>
+
+        <!-- ФОРМА СО ВСЕМИ УКАЗАННЫМИ ЭЛЕМЕНТАМИ -->
+        <section id="form">
+            <h2>Связаться со мной</h2>
+            <p>Форма демонстрирует различные типы полей HTML:</p>
+
+            <!-- 
+                Атрибут action можно потом заменить на PHP-обработчик:
+                action="handler.php" method="post"
+            -->
+            <form action="#" method="post" oninput="rangeOutput.value = expRange.value">
+                <!-- Однострочное текстовое поле -->
+                <div>
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+                </div>
+
+                <!-- Многострочное текстовое поле -->
+                <div>
+                    <label for="message">Кратко о себе:</label>
+                    <textarea id="message" name="message" placeholder="Расскажите пару слов о себе"></textarea>
+                </div>
+
+                <!-- Пароль -->
+                <div>
+                    <label for="password">Пароль (демо):</label>
+                    <input type="password" id="password" name="password">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com">
+                </div>
+
+                <!-- Телефон -->
+                <div>
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7XXXXXXXXXX">
+                </div>
+
+                <!-- Число -->
+                <div>
+                    <label for="age">Возраст:</label>
+                    <input type="number" id="age" name="age" min="0" max="120">
+                </div>
+
+                <!-- URL -->
+                <div>
+                    <label for="site">Ваш сайт / профиль:</label>
+                    <input type="url" id="site" name="site" placeholder="https://">
+                </div>
+
+                <!-- Поиск -->
+                <div>
+                    <label for="search">Поиск по сайту:</label>
+                    <input type="search" id="search" name="search" placeholder="Что вы ищете?">
+                </div>
+
+                <!-- Дата / время -->
+                <div>
+                    <label for="date">Удобная дата встречи:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                <div>
+                    <label for="time">Удобное время:</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <div>
+                    <label for="datetime">Дата и время (локально):</label>
+                    <input type="datetime-local" id="datetime" name="datetime">
+                </div>
+
+                <!-- Выбор цвета -->
+                <div>
+                    <label for="color">Любимый цвет:</label>
+                    <input type="color" id="color" name="color" value="#222222">
+                </div>
+
+                <!-- Ползунок + output -->
+                <div>
+                    <label for="expRange">Оцените опыт в HTML (0–10):</label>
+                    <input type="range" id="expRange" name="expRange" min="0" max="10" value="5">
+                    <output name="rangeOutput" for="expRange">5</output>
+                </div>
+
+                <!-- Флажки -->
+                <fieldset>
+                    <legend>Интересующие направления (флажки)</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="direction[]" value="frontend"> Frontend</label>
+                        <label><input type="checkbox" name="direction[]" value="backend"> Backend</label>
+                        <label><input type="checkbox" name="direction[]" value="design"> Дизайн</label>
+                        <label><input type="checkbox" name="direction[]" value="testing"> Тестирование</label>
+                    </div>
+                </fieldset>
+
+                <!-- Переключатели -->
+                <fieldset>
+                    <legend>Уровень английского (radio)</legend>
+                    <div class="radio-group">
+                        <label><input type="radio" name="english" value="basic"> Basic</label>
+                        <label><input type="radio" name="english" value="intermediate"> Intermediate</label>
+                        <label><input type="radio" name="english" value="advanced"> Advanced</label>
+                    </div>
+                </fieldset>
+
+                <!-- Выпадающий список -->
+                <div>
+                    <label for="city">Город:</label>
+                    <select id="city" name="city">
+                        <option value="">Выберите город</option>
+                        <option value="moscow">Москва</option>
+                        <option value="spb">Санкт-Петербург</option>
+                        <option value="ekb">Екатеринбург</option>
+                        <option value="other">Другой</option>
+                    </select>
+                </div>
+
+                <!-- Datalist (список с автодополнением) -->
+                <div>
+                    <label for="lang">Любимый язык программирования:</label>
+                    <input list="langs" id="lang" name="lang">
+                    <datalist id="langs">
+                        <option value="HTML">
+                        <option value="CSS">
+                        <option value="JavaScript">
+                        <option value="PHP">
+                        <option value="Python">
+                        <option value="C++">
+                    </datalist>
+                </div>
+
+                <!-- Загрузка файла -->
+                <div>
+                    <label for="file">Прикрепить файл (резюме, скрин, код):</label>
+                    <input type="file" id="file" name="file">
+                </div>
+
+                <!-- Скрытое поле -->
+                <input type="hidden" name="source" value="my-personal-page-homework">
+
+                <!-- Отображение результата: progress и meter -->
+                <div class="status-block">
+                    <strong>Прогресс изучения HTML (пример progress):</strong><br>
+                    <progress value="70" max="100"></progress> 70%
+                </div>
+
+                <div class="status-block">
+                    <strong>Пример meter:</strong><br>
+                    <meter min="0" max="10" low="3" high="7" optimum="9" value="8"></meter> 8/10
+                </div>
+
+                <!-- Кнопки -->
+                <div class="buttons">
+                    <input type="submit" value="Отправить форму">
+                    <input type="reset" value="Сбросить">
+                    <button type="button" onclick="alert('Это просто демонстрационная кнопка')">
+                        Нажми меня
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- КОММЕНТАРИЙ -->
+    <footer>
+        &copy; Штукмайстер Г.П. БПИ246. Сделано для учебного задания по PHP.
+    </footer>
+</body>
+</html>
