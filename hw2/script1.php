@@ -1,22 +1,33 @@
 <?php
 
 function calculateTask1($K, $L, $x) {
-    if ($K * $L * $x == 0) {
-        throw new InvalidArgumentException("Ошибка: K, L и x не должны быть нулевыми");
-    }
-    
+    // 1. Проверяем, что все параметры — числа
     if (!is_numeric($K) || !is_numeric($L) || !is_numeric($x)) {
         throw new InvalidArgumentException("Ошибка: Все параметры должны быть числами");
     }
 
+    // 2. Явно приводим к числам
+    $K = (float)$K;
+    $L = (float)$L;
+    $x = (float)$x;
+
+    // 3. Считаем знаменатель один раз и проверяем на ноль
+    $denominatorT = $K * $L * $x;
+    if ($denominatorT == 0.0) {
+        throw new InvalidArgumentException("Ошибка: K, L и x не должны быть нулевыми и не должны давать нулевой знаменатель");
+    }
+
     // T = cos²x (K² - L²) / (K * L * x)
     $cosX = cos($x);
-    $numeratorT = pow($cosX, 2) * (pow($K, 2) - pow($L, 2));
-    $denominatorT = $K * $L * $x;
+    $cosX2 = $cosX * $cosX;
+    $k2 = $K * $K;
+    $l2 = $L * $L;
+
+    $numeratorT = $cosX2 * ($k2 - $l2);
     $T = $numeratorT / $denominatorT;
 
     // Q = √(T² * |K - L| / 0.25)
-    $numeratorQ = pow($T, 2) * abs($K - $L);
+    $numeratorQ = ($T * $T) * abs($K - $L);
     $Q = sqrt($numeratorQ / 0.25);
 
     return [
@@ -24,8 +35,8 @@ function calculateTask1($K, $L, $x) {
         'Q' => $Q,
         'intermediate' => [
             'cos(x)' => $cosX,
-            'cos²(x)' => pow($cosX, 2),
-            'K² - L²' => pow($K, 2) - pow($L, 2),
+            'cos²(x)' => $cosX2,
+            'K² - L²' => $k2 - $l2,
             'числитель T' => $numeratorT,
             'знаменатель T' => $denominatorT
         ]
